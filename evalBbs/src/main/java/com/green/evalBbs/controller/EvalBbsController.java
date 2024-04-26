@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.green.evalBbs.dao.IEvalBbsDao;
+import com.green.evalBbs.dto.EvalBbsDto;
 
 @Controller
 public class EvalBbsController {
@@ -22,5 +23,16 @@ public class EvalBbsController {
 	public String list(Model model) {
 		model.addAttribute("list", iEvalBbsDao.getList());
 		return "list";
+	}
+	
+	@RequestMapping("/writeForm")
+	public String writeForm() {
+		return "writeForm";
+	}
+	
+	@RequestMapping("/write")
+	public String write(EvalBbsDto evalBbsDto) {
+		iEvalBbsDao.writeDto(evalBbsDto.getTitle(), evalBbsDto.getContent(), evalBbsDto.getWriter(), evalBbsDto.getRegdate());
+		return "redirect:list";
 	}
 }

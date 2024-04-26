@@ -8,4 +8,7 @@
 	<select id="getList" resultType="com.green.evalBbs.dto.EvalBbsDto">
 		SELECT * FROM evalbbs;
 	</select>
+	<insert id="writeDto">
+		INSERT INTO evalbbs (title, content, writer, regdate) VALUES (#{title}, #{content}, #{writer}, #{regdate});
+	</insert>
 </mapper>
