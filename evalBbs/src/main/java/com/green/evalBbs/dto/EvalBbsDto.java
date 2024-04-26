@@ -9,4 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class EvalBbsDto {
 
+	private int bno;
+	private String title;
+	private String content;
+	private String writer;
+	private String regdate;
 }
