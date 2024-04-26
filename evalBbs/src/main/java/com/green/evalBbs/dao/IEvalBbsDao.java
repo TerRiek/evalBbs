@@ -13,5 +13,5 @@ public interface IEvalBbsDao {
 	public List<EvalBbsDto> getList();
 	public EvalBbsDto getDto(@Param("bno") int bno);
 	public void writeDto(@Param("title") String title, @Param("content") String content, @Param("writer") String writer, @Param("regdate") String regdate);
-
+	public void deleteDto(@Param("bno") int bno);
 }

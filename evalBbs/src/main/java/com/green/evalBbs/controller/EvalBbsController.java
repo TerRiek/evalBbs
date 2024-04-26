@@ -45,4 +45,11 @@ public class EvalBbsController {
 		modelAndView.setViewName("detail");
 		return modelAndView;
 	}
+	
+	@RequestMapping("/delete")
+	public String delete(@RequestParam("bno") String bno_) {
+		int bno = Integer.parseInt(bno_);
+		iEvalBbsDao.deleteDto(bno);
+		return "redirect:list";
+	}
 }

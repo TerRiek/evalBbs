@@ -17,7 +17,8 @@
         <li>게시물내용 : ${dto.content}</li>
         <li>작성자 : ${dto.writer}</li>
         <li>작성일자 : ${dto.regdate}</li>
-        <li><a href="delete?bno=${dto.bno}">삭제하기</a></li>
+        <li><a href="/delete?bno=${dto.bno}">삭제하기</a></li>
+        <li><a href="/list">목록보기</a></li>
     </ul>
 </body>
 </html>
