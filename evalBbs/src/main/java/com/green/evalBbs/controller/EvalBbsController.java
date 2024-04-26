@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.green.evalBbs.dao.IEvalBbsDao;
 import com.green.evalBbs.dto.EvalBbsDto;
@@ -34,5 +36,13 @@ public class EvalBbsController {
 	public String write(EvalBbsDto evalBbsDto) {
 		iEvalBbsDao.writeDto(evalBbsDto.getTitle(), evalBbsDto.getContent(), evalBbsDto.getWriter(), evalBbsDto.getRegdate());
 		return "redirect:list";
+	}
+	
+	@RequestMapping("/detail")
+	public ModelAndView detail(@RequestParam("bno") String bno_, ModelAndView modelAndView) {
+		int bno = Integer.parseInt(bno_);
+		modelAndView.addObject("dto", iEvalBbsDao.getDto(bno));
+		modelAndView.setViewName("detail");
+		return modelAndView;
 	}
 }

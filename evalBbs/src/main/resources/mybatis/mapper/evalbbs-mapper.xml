@@ -8,6 +8,9 @@
 	<select id="getList" resultType="com.green.evalBbs.dto.EvalBbsDto">
 		SELECT * FROM evalbbs;
 	</select>
+	<select id="getDto" resultType="com.green.evalBbs.dto.EvalBbsDto">
+		SELECT * FROM evalbbs WHERE bno = #{bno};
+	</select>
 	<insert id="writeDto">
 		INSERT INTO evalbbs (title, content, writer, regdate) VALUES (#{title}, #{content}, #{writer}, #{regdate});
 	</insert>
